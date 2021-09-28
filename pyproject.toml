@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "example_package"
+version = "0.1.0"
+description = "test"
+authors = ["Thijs van den Oetelaar"]
+
+[tool.poetry.dependencies]
+python = ">=3.9.0,<3.11"
+pandas = "^1.3.3"
+numpy = "^1.21.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
