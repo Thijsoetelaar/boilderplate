@@ -1,15 +1,3 @@
-# Credit project 
-
-```bash 
-pipenv install -d
-pipenv shell
-pipenv run pytest -vv
-```
-
-# Setup a package with setup.py
-```bash
-python setup.py sdist
-```
 
 # Sources
 
