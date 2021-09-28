@@ -10,6 +10,7 @@
 ```bash 
 pyenv local 3.9.0
 poetry init
+poetry install
 poetry shell
 poetry add --dev pytest
 poetry add pandas
@@ -30,3 +31,15 @@ poetry run pytest -vv
 # Git 
 
 Create a .gitignore file here: https://www.toptal.com/developers/gitignore
+
+
+# Vscode & Git
+
+https://github.com/romkatv/powerlevel10k/issues/671
+
+# CURL example
+
+```bash
+python api.py                                                                                 
+curl -X POST http://127.0.0.1:5000/add -H "Content-Type: application/json" -d '{"number": '5'}'
+```
