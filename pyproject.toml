@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "example_package"
+name = "example-package"
 version = "0.1.0"
 description = "test"
 authors = ["Thijs van den Oetelaar"]
