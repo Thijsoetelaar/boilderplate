@@ -23,11 +23,9 @@ def number():
 def predict():
     if request.method=='POST':
         posted_data = request.get_json()
-        # df = pd.DataFrame.from_dict(posted_data)
         df = pd.json_normalize(posted_data)
-        print(df)
 
-        # Load model, maybe take this out
+        # Predict class and proba
         class_ = clf.predict(df)[0]
         proba = clf.predict_proba(df)[:, 1] #predict_proba
         return jsonify(f"Class is: {class_} with probability: {proba[0].round(3)}")

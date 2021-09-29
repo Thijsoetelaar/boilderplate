@@ -21,8 +21,11 @@ poetry export -f requirements.txt --output requirements.txt
 
 # Building package
 
+Building with python or with poetry
+
 ```bash 
 python3 -m build
+poetry build 
 ```
 
 # Testing
