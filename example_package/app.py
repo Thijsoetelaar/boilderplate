@@ -1,13 +1,16 @@
 import pandas as pd
+import os
+
 from flask import Flask, jsonify, request
 from joblib import load
-# from example_package.example import add_one
 from utils import add_one
+# from example_package.example import add_one
+
+# Load in model
+current_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
+clf = load(os.path.join(current_dir,'models/model.joblib'))
 
 app = Flask(__name__)
-
-# def add_one(number):
-#    return number + 1
 
 @app.route("/add", methods=["POST"])
 def number():
@@ -25,7 +28,6 @@ def predict():
         print(df)
 
         # Load model, maybe take this out
-        clf = load('models/model.joblib')
         class_ = clf.predict(df)[0]
         proba = clf.predict_proba(df)[:, 1] #predict_proba
         return jsonify(f"Class is: {class_} with probability: {proba[0].round(3)}")
