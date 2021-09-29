@@ -40,6 +40,14 @@ https://github.com/romkatv/powerlevel10k/issues/671
 # CURL example
 
 ```bash
-python api.py                                                                                 
+python app.py                                                                                 -
 curl -X POST http://127.0.0.1:5000/add -H "Content-Type: application/json" -d '{"number": '5'}'
+```
+
+# Docker 
+
+```bash 
+docker build -t example_package .   
+docker run --publish 8080:8080 example_package
+curl http://localhost:8080/add -H "Content-Type: application/json" -d '{"number": '5'}'
 ```

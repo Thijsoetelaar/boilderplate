@@ -1,15 +1,32 @@
 FROM python:3.9
 
-ENV PIP_DISABLE_PIP_VERSION_CHECK=on
+ARG YOUR_ENV
 
-RUN pip install poetry
+ENV YOUR_ENV=${YOUR_ENV} \
+  PYTHONFAULTHANDLER=1 \
+  PYTHONUNBUFFERED=1 \
+  PYTHONHASHSEED=random \
+  PIP_NO_CACHE_DIR=off \
+  PIP_DISABLE_PIP_VERSION_CHECK=on \
+  PIP_DEFAULT_TIMEOUT=100 \
+  POETRY_VERSION=1.0.10
 
-WORKDIR /app
-COPY poetry.lock pyproject.toml /app/
+# System deps:
+RUN pip install "poetry==$POETRY_VERSION"
 
-RUN poetry config virtualenvs.create false
-RUN poetry install --no-interaction
+# Copy only requirements to cache them in docker layer
+WORKDIR /code
+COPY poetry.lock pyproject.toml /code/
 
-COPY example_package/ .
+# Project initialization:
+RUN poetry config virtualenvs.create false \
+  && poetry install $(test "$YOUR_ENV" == production && echo "--no-dev") --no-interaction --no-ansi
 
-CMD ["python3", "./api.py"]
+# Creating folders, and files for a project:
+COPY example_package/ /code/
+RUN pip install example_package
+
+EXPOSE 8080
+
+# command to run on container start
+CMD [ "python", "app.py" ]
