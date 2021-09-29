@@ -1,0 +1,5 @@
+To do list: 
+
+1. Jenkins (CI/CD) 
+2. Create model dispatcher 
+3. Create app for model 
