@@ -3,6 +3,7 @@
 
 1. Setup: https://towardsdatascience.com/best-practices-for-setting-up-a-python-environment-d4af439846a
 2. Python packaging: https://packaging.python.org/tutorials/packaging-projects/
+3. Poetry: https://python-poetry.org/docs/cli/
 
 
 # Setting up 
@@ -14,6 +15,7 @@ poetry install
 poetry shell
 poetry add --dev pytest
 poetry add -vvv pandas
+poetry export -f requirements.txt --output requirements.txt
 
 ```
 
