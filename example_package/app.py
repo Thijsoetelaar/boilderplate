@@ -14,5 +14,14 @@ def number():
         number = posted_data['number']
         return jsonify(f"When you add 1 to {number} you get {add_one(number)}")
 
+@app.route("/predict", methods=["POST"])
+def predict():
+    if request.method=='POST':
+        posted_data = request.get_json()
+        clf = load('models/model.joblib')
+        df = posted_data 
+        result = clf.predict(df) #predict_proba
+        return jsonify(f"{result}")
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
