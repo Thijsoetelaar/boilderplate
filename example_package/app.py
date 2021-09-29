@@ -1,4 +1,6 @@
+import pandas as pd
 from flask import Flask, jsonify, request
+from joblib import load
 # from example_package.example import add_one
 from utils import add_one
 
@@ -18,8 +20,10 @@ def number():
 def predict():
     if request.method=='POST':
         posted_data = request.get_json()
+        df = pd.DataFrame.from_dict(posted_data, orient="index")
+
+        # Load model, maybe take this out
         clf = load('models/model.joblib')
-        df = posted_data 
         result = clf.predict(df) #predict_proba
         return jsonify(f"{result}")
 
