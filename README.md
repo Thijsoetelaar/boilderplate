@@ -53,3 +53,11 @@ docker build -t example_package .
 docker run --publish 8080:8080 example_package
 curl http://localhost:8080/add -H "Content-Type: application/json" -d '{"number": '5'}'
 ```
+
+# Train 
+
+This trains a logistic regression model with csv file as input that is in the `\data` folder
+
+```bash 
+python train.py --csv "data.csv"
+```
