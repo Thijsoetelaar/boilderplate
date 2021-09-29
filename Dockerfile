@@ -24,7 +24,7 @@ RUN poetry config virtualenvs.create false \
 
 # Creating folders, and files for a project:
 COPY example_package/ /code/
-RUN pip install example_package
+# RUN pip install example_package
 
 EXPOSE 8080
 
