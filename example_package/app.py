@@ -4,7 +4,7 @@ import os
 from flask import Flask, jsonify, request
 from joblib import load
 from utils import add_one
-# from example_package.example import add_one
+# from example_package.utils import add_one
 
 # Load in model
 current_dir = os.path.dirname(__file__) #<-- absolute dir the script is in

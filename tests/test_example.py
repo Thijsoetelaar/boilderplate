@@ -1,5 +1,5 @@
 import unittest
-from example_package.example import add_one
+from example_package.utils import add_one
 
 class TestExamples(unittest.TestCase):
 
