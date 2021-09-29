@@ -42,7 +42,7 @@ https://github.com/romkatv/powerlevel10k/issues/671
 ```bash
 python app.py                                                                                 -
 curl -X POST http://192.168.2.105:8080/add -H "Content-Type: application/json" -d '{"number": '5'}'
-curl -X POST http://192.168.2.105:8080/predict -H "Content-Type: application/json" -d '{"Age": 55,"Job": 5, "Credit amount": 55}'
+curl -X POST http://192.168.2.105:8080/predict -H "Content-Type: application/json" -d '{"age": 55,"job": 5, "credit_amount": 55}'
 curl -X POST http://192.168.2.105:8080/predict -H "Content-Type: application/json" -d @example.json
 ```
 
