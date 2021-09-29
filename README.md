@@ -48,10 +48,15 @@ curl -X POST http://192.168.2.105:8080/predict -H "Content-Type: application/jso
 
 # Docker 
 
+1. First build your docker image 
+2. then run and publish on the correct port 
+3. Test both endpoints `/add` and `/predict`
+
 ```bash 
 docker build -t example_package .   
 docker run --publish 8080:8080 example_package
 curl http://localhost:8080/add -H "Content-Type: application/json" -d '{"number": '5'}'
+curl http://localhost:8080/predict -H "Content-Type: application/json" -d @example.json
 ```
 
 # Train 
