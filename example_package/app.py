@@ -1,11 +1,12 @@
 from flask import Flask, jsonify, request
 # from example_package.example import add_one
+from example import add_one
 
 app = Flask(__name__)
 
-def add_one(number):
-    return number + 1
-    
+# def add_one(number):
+#    return number + 1
+
 @app.route("/add", methods=["POST"])
 def number():
     if request.method=='POST':
